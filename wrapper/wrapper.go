@@ -83,7 +83,7 @@ func (w *Wrapper) SetPayload(n string, v interface{}) {
 	w.Payload[n] = v
 }
 
-// Gets payload based on a keyvalue
+// GetAPayload gets payload based on a keyvalue
 func (w *Wrapper) GetAPayload(n string) (interface{}, error) {
 	if _, ok := w.Payload[n]; ok {
 		return w.Payload[n], nil
@@ -92,12 +92,12 @@ func (w *Wrapper) GetAPayload(n string) (interface{}, error) {
 	return nil, err
 }
 
-// Gets payload based on a keyvalue
+// DeleteAPayload gets payload based on a keyvalue
 func (w *Wrapper) DeleteAPayload(n string) {
 	delete(w.Payload, n)
 }
 
-// Gets entire payload
+// GetPayload gets entire payload
 func (w *Wrapper) GetPayload() map[string]interface{} {
 	return w.Payload
 }

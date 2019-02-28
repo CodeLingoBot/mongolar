@@ -67,7 +67,7 @@ func GetValidFormData(w *wrapper.Wrapper, post interface{}) error {
 
 }
 
-// Check for missing required fields.
+// ValidateRequired checks for missing required fields.
 func (fr *FormRegister) ValidateRequired(data map[string]interface{}) map[string]string {
 	missing := make(map[string]string)
 	for _, f := range fr.FormFields {
@@ -80,7 +80,7 @@ func (fr *FormRegister) ValidateRequired(data map[string]interface{}) map[string
 	return missing
 }
 
-// Retrieve a previously registered form by id
+// GetFormRegister retrieves a previously registered form by id
 func GetFormRegister(i string, w *wrapper.Wrapper) (*FormRegister, error) {
 	fr := new(FormRegister)
 	c := w.DbSession.DB("").C("form_register")
@@ -88,7 +88,7 @@ func GetFormRegister(i string, w *wrapper.Wrapper) (*FormRegister, error) {
 	return fr, err
 }
 
-// Retrieve valid form based on id and session id
+// GetValidRegForm retrieves valid form based on id and session id
 func GetValidRegForm(i string, w *wrapper.Wrapper) (*FormRegister, error) {
 	fr := new(FormRegister)
 	c := w.DbSession.DB("").C("form_register")

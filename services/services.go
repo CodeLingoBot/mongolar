@@ -4,7 +4,7 @@ import (
 	"github.com/mongolar/mongolar/wrapper"
 )
 
-// Add a message to be served
+// AddMessage adds a message to be served
 func AddMessage(t string, s string, w *wrapper.Wrapper) {
 	message := map[string]string{"text": t, "severity": s}
 	messages, err := w.GetAPayload("mongolar_messages")

@@ -114,7 +114,7 @@ func PathEditorSubmit(w *wrapper.Wrapper) {
 
 }
 
-// Retrieve a list of elements in a path for content editor.
+// PathElements retrieves a list of elements in a path for content editor.
 func PathElements(w *wrapper.Wrapper) {
 	if len(w.APIParams) == 0 {
 		http.Error(w.Writer, "Forbidden", 403)

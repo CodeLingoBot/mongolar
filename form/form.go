@@ -25,7 +25,7 @@ func NewForm() *Form {
 	return &f
 }
 
-// Add a text field to form
+// AddText adds a text field to form
 func (f *Form) AddText(k string, t string) *Field {
 	fi := &Field{
 		Type:            "input",
@@ -36,7 +36,7 @@ func (f *Form) AddText(k string, t string) *Field {
 	return fi
 }
 
-// Add a text are to form
+// AddTextArea adds a text are to form
 func (f *Form) AddTextArea(k string) *Field {
 	fi := &Field{
 		Type:            "textarea",
@@ -47,7 +47,7 @@ func (f *Form) AddTextArea(k string) *Field {
 	return fi
 }
 
-// Add a checkbox to form
+// AddCheckBox adds a checkbox to form
 func (f *Form) AddCheckBox(k string) *Field {
 	fi := &Field{
 		Type:            "checkbox",
@@ -58,7 +58,7 @@ func (f *Form) AddCheckBox(k string) *Field {
 	return fi
 }
 
-// Add a radio button to form
+// AddRadio adds a radio button to form
 func (f *Form) AddRadio(k string, o []map[string]string) *Field {
 	fo := &TemplateOptions{
 		Options: o,
@@ -72,7 +72,7 @@ func (f *Form) AddRadio(k string, o []map[string]string) *Field {
 	return fi
 }
 
-// Add a radio button to form
+// AddSelect adds a radio button to form
 func (f *Form) AddSelect(k string, o []map[string]string) *Field {
 	fo := &TemplateOptions{
 		Options: o,
@@ -86,7 +86,7 @@ func (f *Form) AddSelect(k string, o []map[string]string) *Field {
 	return fi
 }
 
-// Add a radio button to form
+// AddRepeatSection adds a radio button to form
 func (f *Form) AddRepeatSection(k string, b string, fs []*Field) *Field {
 	fo := &TemplateOptions{
 		Fields:     fs,

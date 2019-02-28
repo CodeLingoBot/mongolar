@@ -21,7 +21,7 @@ type TemplateOptions struct {
 	ButtonText  string              `json:"btnText,omitempty" bson:"btnText,omitempty"`
 }
 
-// Add label to field
+// AddLabel adds label to field
 func (f *Field) AddLabel(l string) *Field {
 	f.TemplateOptions.Label = l
 	return f

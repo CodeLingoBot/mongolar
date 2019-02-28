@@ -51,7 +51,7 @@ func GetElement(b bson.M, v interface{}, w *wrapper.Wrapper) error {
 	return err
 }
 
-// Get one element given an id
+// GetById gets one element given an id
 func GetById(i string, v interface{}, w *wrapper.Wrapper) error {
 	if !bson.IsObjectIdHex(i) {
 		return errors.New("Invalid Id Hex")
@@ -61,7 +61,7 @@ func GetById(i string, v interface{}, w *wrapper.Wrapper) error {
 	return err
 }
 
-// Get one element by id and controller path, most common query because you should validate your controller against the id
+// GetValidElement gets one element by id and controller path, most common query because you should validate your controller against the id
 func GetValidElement(i string, c string, v interface{}, w *wrapper.Wrapper) error {
 	if !bson.IsObjectIdHex(i) {
 		return errors.New("Invalid Id Hex")
@@ -80,7 +80,7 @@ func Delete(id string, w *wrapper.Wrapper) error {
 	return c.Remove(i)
 }
 
-// Get all Elements
+// ElementList gets all Elements
 func ElementList(w *wrapper.Wrapper) ([]Element, error) {
 	el := make([]Element, 0)
 	c := w.DbSession.DB("").C("elements")

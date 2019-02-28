@@ -55,7 +55,7 @@ func (w *Wrapper) SetSession() error {
 	return nil
 }
 
-// Get current session data
+// SetSessionValue gets current session data
 func (w *Wrapper) SetSessionValue(k string, v interface{}) error {
 	c := w.DbSession.DB("").C("sessions")
 	err := c.Update(bson.M{"_id": w.Session.Id}, bson.M{"$set": bson.M{k: v}})
@@ -65,7 +65,7 @@ func (w *Wrapper) SetSessionValue(k string, v interface{}) error {
 	return nil
 }
 
-// Get a session value by key.
+// GetSessionValue gets a session value by key.
 func (w *Wrapper) GetSessionValue(n string, i interface{}) error {
 	c := w.DbSession.DB("").C("sessions")
 	err := c.Find(bson.M{"_id": w.Session.Id}).Select(bson.M{n: 1}).One(i)

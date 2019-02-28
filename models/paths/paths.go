@@ -69,7 +69,7 @@ func (p *Path) Save(w *wrapper.Wrapper) error {
 	return nil
 }
 
-// Get Path by Id on constructed Path
+// GetById gets Path by Id on constructed Path
 func (p *Path) GetById(i string, w *wrapper.Wrapper) error {
 	if !bson.IsObjectIdHex(i) {
 		return errors.New("Invalid Id Hex")
@@ -107,7 +107,7 @@ func (p *Path) PathMatch(u string, s string, w *wrapper.Wrapper) (string, error)
 	return strings.Join(rejects, "/"), err
 }
 
-// Add a child element to an existing Path
+// AddChild adds a child element to an existing Path
 func AddChild(pathid string, elementid string, w *wrapper.Wrapper) error {
 	if !bson.IsObjectIdHex(elementid) {
 		return errors.New("Invalid Hex Id")
@@ -143,7 +143,7 @@ func DeleteAllChild(id string, w *wrapper.Wrapper) error {
 
 }
 
-// Get all Paths
+// PathList gets all Paths
 func PathList(w *wrapper.Wrapper) ([]Path, error) {
 	pl := make([]Path, 0)
 	c := w.DbSession.DB("").C("paths")
